@@ -2,10 +2,6 @@ import torch
 import MeCab
 from app_utils import *
 from transformers import pipeline
-import subprocess
-from unidecode import unidecode
-from pyknp import Juman
-
 
 def main():
     st.title("deberta-v2 (ku-lab) - Fill Mask")
