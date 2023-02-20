@@ -20,9 +20,6 @@ def main():
     nlp_model = load_hf_model(model_selection.get(model_option))
     tokenizer, model = nlp_model
     text = st.text_area("Enter Text Here", value='京都大学で自然言語処理を[MASK]する')
-    # juman = Juman()
-    # result = juman.analysis(sentence)
-    # text = ''.join([m.midasi for m in result.mrph_list()])
 
     with st.expander("Result"):
         encoding = tokenizer(text, return_tensors='pt')
@@ -45,7 +42,7 @@ def main():
             st.markdown("".join(marked_up_words), unsafe_allow_html=True)
             #st.markdown(f"<span style='color:red'>{correct_sentence}</span>", unsafe_allow_html=True)
 
-    with st.expander("Result-pipeline"):
+    with st.expander("Result-HuggingFace-pipeline"):
         mask_filler = pipeline(
             "fill-mask", model=model_selection.get(model_option)
         )
